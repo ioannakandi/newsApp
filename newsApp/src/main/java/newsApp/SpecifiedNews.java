@@ -5,9 +5,11 @@ import java.util.ArrayList;
 
 public class SpecifiedNews {
 
-	// initiating specified news method
+	// initiating specified news method for "search" input in the main menu. 
 	public ArrayList<News> searchTrending(String searchText, String searchType, ArrayList<News> trending) throws IOException, InterruptedException {
 		ArrayList<News> filteredNews = new ArrayList<News>();
+		// using if for each user-specified input (either keyword,source,date,language or category input in the "search" menu)
+	
 		if(searchType.equals("keyword"))
 		{
 			// Iterating using for loop to show the news

@@ -34,15 +34,15 @@ public class apiInterraction {
 		}
 		else
 		{
-			// Create a neat value object to hold the URL
+			// Create a neat value object to hold the URL / news category specified by the user
 			url = new URL("https://newsapi.org/v2/top-headlines?country="+country+"&category="+newsCategory+
 					"&apiKey=e044b24f4539454da899784e52aa9c6c");
 		}
 
-		// Open a connection(?) on the URL(??) and cast the response(???)
+		// Open a connection(*) on the URL(**) and cast the response(***)
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-		// Now it's "open", we can set the request method, headers etc.
+		// Now it's "open",  set the request method, headers etc.
 		connection.setRequestProperty("accept", "application/json");
 
 		//make the request and store the response as br
@@ -67,10 +67,10 @@ public class apiInterraction {
                 //get the story description
                 String story_description = story.get("description").getAsString();
                 
-                //get the story description
+                //get the upload/publishetAt date
                 String story_upload = story.get("publishedAt").getAsString();
                 
-                //get the story description
+                //get the story url
                 String story_url = story.get("url").getAsString();
                 
                 
@@ -89,7 +89,8 @@ public class apiInterraction {
         	
             
         }	
-        //return the array list with the news
+        //return the array list with the trending news
+        
         return trending;
 		
 	}

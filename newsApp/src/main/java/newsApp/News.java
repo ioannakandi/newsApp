@@ -2,6 +2,7 @@ package newsApp;
 
 //  News constructor for generating 'News' type objects.
 
+
 public class News {
 
 	public String title;

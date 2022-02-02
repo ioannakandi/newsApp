@@ -7,12 +7,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		//exception handling using try/catch
+		
 		try {	
-			//this is an array list to store the trending news (to search them later on)
+			// array list to store the trending news (to go through them later on)
 			ArrayList<News> trending= new ArrayList<News>();
 			
 			Scanner sc = new Scanner(System.in);
-			//while to keep asking the user for input
+			//while loop to keep asking the user for input (it's like the main menu of the app)
 			while (true) {
 				System.out.println("~.~"+
 						" Enter 'trending' for trending news " +
@@ -23,21 +25,21 @@ public class Main {
 						);
 				String choice = sc.nextLine();
 				if (choice.equals("trending")) {
-					//ask the user for the country
+					//ask the user for their country input
 					System.out.println("Please type the country of your liking, or enter 'mine' if you want to use "
 							+ "your current location.");
 					String country = sc.nextLine();
-					//ask the user for category
+					//ask the user for their category of choice
 					System.out.println("Please type your topic of interest, or enter 'show all' if you'd like all topics.");
 					String category = sc.nextLine();
 					apiInterraction request = new apiInterraction();
 					
 					
 					trending = request.trendingNews(country.toString(),category.toString());
-					// Iterating using for loop to show the news
+					// Iterating using for loop to show/display the news
 			        for (int i = 0; i < trending.size(); i++)
 			        {
-			        	// Printing and display the elements in ArrayList
+			        	// Printing and display the elements in ArrayList mentioned above
 				        System.out.print("Title :"+trending.get(i).title + "\n");
 				        System.out.print("Description :"+trending.get(i).description + "\n");
 				        System.out.print("Date :"+trending.get(i).uploadDate + "\n");
@@ -50,7 +52,7 @@ public class Main {
 			        
 				} 
 				else if(choice.equals("search")) {
-					
+					// menu selection for specified (by the user) search/news. If they typed "search" in the main menu, then this search-oriented menu will be shown
 					System.out.println(" ~.~"+
 							" Enter 'keyword' to search the title/description for user-specified news " + "~.~" +
 							
@@ -71,7 +73,7 @@ public class Main {
 					ArrayList<News> filteredNews = new ArrayList<News>();
 					filteredNews = requestfilteredNews.searchTrending(searchText.toString(),searchType.toString(),trending);
 					
-					// Iterating using for loop to show the retrieved news of the search results.
+					// Iterating using for loop to show the retrieved news of the user-specified search results.
 			        try {
 						for (int i = 0; i < filteredNews.size(); i++)
 						{
@@ -95,11 +97,11 @@ public class Main {
 					
 				}
 				else if(choice.equals("quit")) {
-					//break from while loop and exit the app
+					//break from while loop and exit the app when "quit" is typed in 
 					break;
 				}
 				else
-				{
+				{  // error message for unknown input (input not corresponding to any of the menus/choices mentioned above)
 					System.out.println("Unidentified text. Try again.");
 				}
 			}
