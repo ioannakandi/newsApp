@@ -18,7 +18,7 @@ public class SpecifiedNews {
 	        	if(trending.get(i).title.contains(searchText) || trending.get(i).description.contains(searchText))
 	        	{
 	        		//create News object (based on retrieved parameters)
-	                News filtered = new News(trending.get(i).title,trending.get(i).description,trending.get(i).uploadDate,trending.get(i).url,trending.get(i).category,trending.get(i).country);
+	                News filtered = new News(trending.get(i).title,trending.get(i).description,trending.get(i).uploadDate,trending.get(i).url,trending.get(i).country,trending.get(i).category);
 	                //store the news into the array list
 	                filteredNews.add(filtered);
 	                //delete the object
@@ -82,7 +82,7 @@ public class SpecifiedNews {
 	        	if(trending.get(i).category.contains(searchText))
 	        	{
 	        		//create News object (based on retrieved parameters)
-	                News filtered = new News(trending.get(i).title,trending.get(i).description,trending.get(i).uploadDate,trending.get(i).url,trending.get(i).category,trending.get(i).country);
+	                News filtered = new News(trending.get(i).title,trending.get(i).description,trending.get(i).uploadDate,trending.get(i).url,trending.get(i).country,trending.get(i).category);
 	                //store the news into the array list
 	                filteredNews.add(filtered);
 	                //delete the object
